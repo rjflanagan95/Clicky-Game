@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Image from './components/Image';
+import Game from './components/Game';
 
 class App extends Component {
   render() {
-    return <Image/>
+    return <Game/>
   }
 }
 
