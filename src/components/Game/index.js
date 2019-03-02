@@ -70,9 +70,23 @@ class Game extends Component {
 
     handleClick = imgID => {
         if (this.state.clickedImages.indexOf(imgID) !== -1) {
-            this.setState({ score: 0, clickedImages: [] });
+            this.setState({ score: 0, topScore: 0, clickedImages: [] });
+            alert("You lost :(");
         } else {
-            this.setState({ score: this.state.score + 1, clickedImages: this.state.clickedImages.concat(imgID)});
+            this.setState({ score: this.state.score + 1, clickedImages: this.state.clickedImages.concat(imgID)}, () => {
+                if (this.state.score >= this.state.topScore) {
+                    this.setState({ topScore: this.state.score });
+                }
+                this.checkScore();
+            });
+        }
+    }
+
+    checkScore = () => {
+        if (this.state.score === 9) {
+            alert("You won!");
+            this.setState({ score: 0, topScore: 0, clickedImages: [] });
+
         }
     }
 
