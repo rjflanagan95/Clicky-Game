@@ -1,3 +1,5 @@
+import "./style.css";
+
 import React, { Component } from "react";
 import Navbar from "../Navbar";
 import Header from "../Header";
@@ -59,7 +61,6 @@ const images = [
     },
 
 ]
-// import "./style.css";
 
 class Game extends Component {
   // Setting the component's initial state
@@ -73,7 +74,7 @@ class Game extends Component {
 
     handleClick = imgID => {
         if (this.state.clickedImages.indexOf(imgID) !== -1) {
-            this.setState({ score: 0, topScore: 0, clickedImages: [] });
+            this.setState({ score: 0, clickedImages: [] });
             alert("You lost :(");
         } else {
             this.setState({ score: this.state.score + 1, clickedImages: this.state.clickedImages.concat(imgID)}, () => {
@@ -100,9 +101,11 @@ class Game extends Component {
             <div>
                 <Navbar score={this.state.score} topScore={this.state.topScore}/>
                 <Header/>
-                {this.state.images.map(item =>
-                    <img onClick={() => this.handleClick(item.id)} key={item.id} id={item.id} alt={item.alt} style={{width:100,height:100}} src={item.src}/>
-                )}
+                <div className="image-container">
+                    {this.state.images.map(item =>
+                        <img className="planet-image" onClick={() => this.handleClick(item.id)} key={item.id} id={item.id} alt={item.alt} style={{width:125,height:125}} src={item.src}/>
+                    )}
+                </div>
             </div>
         );
     }
