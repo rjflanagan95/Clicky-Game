@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Navbar from "../Navbar";
+import Header from "../Header";
+
 const images = [
     {
         "id" : 1,
@@ -80,6 +83,8 @@ class Game extends Component {
                 this.checkScore();
             });
         }
+
+        // shuffle images array here
     }
 
     checkScore = () => {
@@ -93,8 +98,8 @@ class Game extends Component {
     render() {
         return (
             <div>
-                <p>Current score: {this.state.score}</p>
-                <p>Top score: {this.state.topScore}</p>
+                <Navbar score={this.state.score} topScore={this.state.topScore}/>
+                <Header/>
                 {this.state.images.map(item =>
                     <img onClick={() => this.handleClick(item.id)} key={item.id} id={item.id} alt={item.alt} style={{width:100,height:100}} src={item.src}/>
                 )}
