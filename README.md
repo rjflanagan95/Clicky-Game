@@ -4,7 +4,7 @@ This is a type of memory game made using React components. Try to click all the 
 
 ## How to Use
 
-Visit the deployed site at *****
+Visit the deployed site at https://rjflanagan95.github.io/clicky-game/
 
 Or run it locally:
 Run `npm install` in the terminal from the root of the directory, then run `npm start`. If your browser doesn't open automatically, navigate to http://localhost:3000
